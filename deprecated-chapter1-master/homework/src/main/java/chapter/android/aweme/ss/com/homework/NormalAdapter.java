@@ -14,6 +14,7 @@ import chapter.android.aweme.ss.com.homework.widget.CircleImageView;
 
 public class NormalAdapter extends RecyclerView.Adapter<NormalAdapter.VH> {
     private List<Message> mDatas;
+    private NormalAdapter.OnItemClickListener onItemClickListener;
 
     public static class VH extends RecyclerView.ViewHolder{
         public final CircleImageView icon;
@@ -40,7 +41,7 @@ public class NormalAdapter extends RecyclerView.Adapter<NormalAdapter.VH> {
 
     //③ 在Adapter中实现3个方法
     @Override
-    public void onBindViewHolder(VH holder, int position) {
+    public void onBindViewHolder(final VH holder, int position) {
         /*holder.icon.setImageResource(mDatas.get(position).getIcon());
                 (mDatas.get(position).getIcon());
                 ();*/
@@ -77,9 +78,21 @@ public class NormalAdapter extends RecyclerView.Adapter<NormalAdapter.VH> {
             @Override
             public void onClick(View v) {
                 //item 点击事件
-                System.out.println("click");
+                if(onItemClickListener != null) {
+                    int pos = holder.getLayoutPosition();
+                    onItemClickListener.onItemClick(holder.itemView, pos);
+                }
             }
         });
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+    // ② 定义一个设置点击监听器的方法
+    public void setOnItemClickListener(NormalAdapter.OnItemClickListener listener) {
+        this.onItemClickListener = listener;
     }
 
     @Override

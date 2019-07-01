@@ -11,6 +11,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
+
 import chapter.android.aweme.ss.com.homework.model.Message;
 import chapter.android.aweme.ss.com.homework.model.PullParser;
 
@@ -46,6 +48,15 @@ public class Exercises3 extends AppCompatActivity implements View.OnClickListene
         findViewById(R.id.number2).setOnClickListener(this);
         findViewById(R.id.number3).setOnClickListener(this);
         findViewById(R.id.number4).setOnClickListener(this);
+
+        adapter.setOnItemClickListener(new NormalAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent new_intent=new Intent(Exercises3.this, MessagePage.class);
+                startActivity(new_intent);
+            }
+
+        });
     }
 
     @Override

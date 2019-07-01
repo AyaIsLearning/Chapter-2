@@ -21,6 +21,7 @@
         <activity android:name=".Exercises3" />
         <activity android:name=".Exercises2" />
         <activity android:name=".NewPage" />
+        <activity android:name=".MessagePage" />
     </application>
 
 </manifest>
