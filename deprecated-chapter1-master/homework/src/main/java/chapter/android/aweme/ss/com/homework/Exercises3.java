@@ -53,6 +53,8 @@ public class Exercises3 extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onItemClick(View view, int position) {
                 Intent new_intent=new Intent(Exercises3.this, MessagePage.class);
+                new_intent.putExtra("title",list.get(position).getTitle());
+                new_intent.putExtra("message",list.get(position).getDescription());
                 startActivity(new_intent);
             }
 
