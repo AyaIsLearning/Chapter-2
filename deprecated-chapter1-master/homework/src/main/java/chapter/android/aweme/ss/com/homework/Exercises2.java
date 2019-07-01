@@ -37,16 +37,29 @@ public class Exercises2 extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(Exercises2.this, android.R.layout.simple_list_item_1, city);
 
-        ListView list = findViewById(R.id.TestList);
+        final ListView list = findViewById(R.id.TestList);
         list.setAdapter(adapter);
 
-        View current_view = getWindow().getDecorView().findViewById(R.id.root);
-        int viewCount=getViewCount(current_view);
+        list.post(new Runnable(){
+            public void run(){
+                // fileList为与adapter做连结的list总数
+                if (list.getChildCount()!=0){
+                    //对ListView中的ChildView进行操作。。。
+                    View current_view = getWindow().getDecorView().findViewById(R.id.root);
+                    int viewCount=getViewCount(current_view);
 
-        TextView text=findViewById(R.id.TotalViewNum);
-        text.setText("共有"+viewCount+"个view");
-        Toast.makeText(Exercises2.this,"共有"+viewCount,Toast.LENGTH_LONG).show();
-        
+                    TextView text=findViewById(R.id.TotalViewNum);
+                    text.setText("共有"+viewCount+"个view");
+                    Toast.makeText(Exercises2.this,"共有"+viewCount,Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+        });
+
+
+
+
         /*
         setContentView(R.layout.im_list_item);
         View current_view = getWindow().getDecorView().findViewById(R.id.root2);
@@ -72,12 +85,7 @@ public class Exercises2 extends AppCompatActivity {
                 View temp_view = ((ViewGroup) view).getChildAt(i);
 
                 if (temp_view instanceof ViewGroup) {
-                    if(temp_view instanceof ListView){
-                        viewCount += ((ListView) temp_view).getCount();
-                    }
-                    else{
-                        viewCount += getViewCount(temp_view);
-                    }
+                    viewCount += getViewCount(temp_view);
                 }
                 else {
                     viewCount++;
