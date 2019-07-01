@@ -5,11 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+
+    >
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="40dp"
+        tools:background="@color/colorBackground">
 
         <TextView
             android:id="@+id/textView3"
@@ -24,7 +29,9 @@
             android:layout_height="fill_parent"
             android:layout_weight="5"
             android:gravity="center"
-            android:text="消息"/>
+            android:text="@string/消息"
+            android:textColor="@color/fontcolor"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -32,31 +39,41 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="联系人" />
+            android:text="@string/联系人"
+            android:textColor="@color/fontcolor"
+            android:textSize="16sp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp" android:orientation="horizontal"
-        android:layout_marginTop="3dp">
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+
+        tools:background="@color/colorBackground"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/number1">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/icon_notice_fans" />
+                app:srcCompat="@drawable/icon_notice_fans"
+                android:layout_marginVertical="10dp"
+                android:contentDescription="@string/粉丝" />
 
             <Button
                 android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="粉丝"
+                android:text="@string/粉丝"
+                android:textColor="@color/fontcolor"
+                android:textSize="16sp"
                 style="?android:attr/borderlessButtonStyle"/>
         </LinearLayout>
 
@@ -64,40 +81,49 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/number2">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 app:srcCompat="@drawable/icon_notice_like"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginVertical="10dp"
+                android:contentDescription="@string/赞" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="@color/fontcolor"
+                android:textSize="16sp"
                 style="?android:attr/borderlessButtonStyle"
-                android:text="赞" />
+                android:text="@string/赞" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/number3">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
+                android:layout_marginVertical="10dp"
                 app:srcCompat="@drawable/icon_notice_people"
-                />
+                android:contentDescription="@string/atme" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/atme"
+                android:textColor="@color/fontcolor"
+                android:textSize="16sp"
                 style="?android:attr/borderlessButtonStyle"/>
         </LinearLayout>
 
@@ -105,23 +131,35 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:id="@+id/number4">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/ic_notice_comment" />
+                android:layout_marginVertical="10dp"
+                app:srcCompat="@drawable/ic_notice_comment"
+                android:contentDescription="@string/评论" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="评论"
+                android:text="@string/评论"
+                android:textColor="@color/fontcolor"
+                android:textSize="16sp"
                 style="?android:attr/borderlessButtonStyle"/>
         </LinearLayout>
 
     </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/im_list_item" />
 </LinearLayout>
 
 
