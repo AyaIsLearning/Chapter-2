@@ -7,6 +7,7 @@
     android:paddingTop="12dp"
     android:paddingRight="16dp"
     android:paddingBottom="10dp"
+    android:id="@+id/root2"
     tools:background="@color/colorBackground"
     android:background="@drawable/recycler_item_selector">
 
