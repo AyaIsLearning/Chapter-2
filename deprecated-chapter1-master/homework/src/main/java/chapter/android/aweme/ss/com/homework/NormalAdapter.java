@@ -73,6 +73,10 @@ public class NormalAdapter extends RecyclerView.Adapter<NormalAdapter.VH> {
             holder.icon2.setVisibility(ImageView.VISIBLE);
             holder.icon2.setImageResource(R.drawable.im_icon_notice_official);
         }
+        else{
+            holder.icon2.setVisibility(ImageView.INVISIBLE);
+        }
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
